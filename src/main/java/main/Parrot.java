@@ -2,11 +2,13 @@ package main;
 
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-
 @Component
 public class Parrot {
     private String name;
+
+    public Parrot() {
+        System.out.println("Parrot created");
+    }
 
     public String getName() {
         return name;
@@ -16,8 +18,8 @@ public class Parrot {
         this.name = name;
     }
 
-    @PostConstruct
-    public void init() {
-        this.name = "Kiki";
+    @Override
+    public String toString() {
+        return "Parrot : " + name;
     }
 }
